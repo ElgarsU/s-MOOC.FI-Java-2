@@ -10,7 +10,7 @@ public class Abbreviations {
     }
     
     public static String clean(String input) {
-        String output = input.toLowerCase().strip();
+        String output = input.toLowerCase().trim();
         return output;
     }
     
