@@ -1,6 +1,8 @@
 
 import java.util.Objects;
 
+
+
 public class LicensePlate {
     // don't modify existing parts of this class
 
@@ -18,5 +20,36 @@ public class LicensePlate {
     public String toString() {
         return country + " " + liNumber;
     }
+
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 31 * hash + Objects.hashCode(this.liNumber); //this.liNumber.hashCode();
+        hash = 31 * hash + Objects.hashCode(this.country); //this.country.hashCode();
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final LicensePlate other = (LicensePlate) obj;
+        if (!Objects.equals(this.liNumber, other.liNumber)) {
+            return false;
+        }
+        if (!Objects.equals(this.country, other.country)) {
+            return false;
+        }
+        return true;
+    }
+    
+    
 
 }
