@@ -1,5 +1,4 @@
 
-
 public class Warehouse {
 
     private double capacity;
@@ -13,6 +12,11 @@ public class Warehouse {
         }
 
         this.balance = 0.0;
+    }
+    
+    public Warehouse(double capacity, double initialBalance) {
+        this(capacity);
+        this.balance = initialBalance;
     }
 
     public double getBalance() {
@@ -52,6 +56,7 @@ public class Warehouse {
         return amount;
     }
 
+    @Override
     public String toString() {
         return "balance = " + this.balance + ", space left " + howMuchSpaceLeft();
     }
