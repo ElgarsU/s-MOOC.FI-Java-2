@@ -1,6 +1,6 @@
 
 
-public class Card {
+public class Card implements Comparable<Card> {
 
     private int value;
     private Suit suit;
@@ -12,6 +12,15 @@ public class Card {
 
         this.value = value;
         this.suit = suit;
+    }
+    
+    @Override
+    public int compareTo(Card other) {
+        if (this.getValue() - other.getValue() == 0) {
+            return this.getSuit().ordinal() - other.getSuit().ordinal();
+        } else {
+            return this.getValue() - other.getValue();
+        }
     }
 
     @Override
